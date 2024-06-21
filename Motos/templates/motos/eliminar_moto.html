@@ -1,0 +1,13 @@
+{% extends "motos/inicio.html" %}
+
+{% block titulo %}
+Eliminar moto
+{% endblock titulo %}
+
+{% block contenido %}
+<form action={% url "EliminarMoto" moto.id %} method="POST">
+    {% csrf_token %} 
+<p>Desea confirmar el borrado de {{moto}}</p>
+    <input type="submit" value="Confirmar borrado">
+</form>
+{% endblock contenido %}

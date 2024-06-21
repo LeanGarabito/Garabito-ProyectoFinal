@@ -1,0 +1,14 @@
+{% extends "motos/inicio.html" %}
+
+{% block titulo %}
+Editar moto
+{% endblock titulo %}
+
+{% block contenido %}
+<form action={% url "EditarMoto" moto.id %} method="POST">
+    {% csrf_token %}
+    {{form}}
+
+    <input type="submit" value="Guardar cambios">
+</form>
+{% endblock contenido %}

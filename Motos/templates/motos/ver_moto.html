@@ -1,0 +1,18 @@
+{% extends "motos/inicio.html" %}
+
+{% block titulo %}
+Lista Motos
+{% endblock titulo %}
+
+{% block contenido %}
+<ul>
+    <li>Marca: {{moto.marca}}</li>
+    <li>Modelo: {{moto.modelo}}</li>
+    <li>Año: {{moto.año}}</li>   
+    <li>Kilometros: {{moto.kilometros}}</li>    
+
+</ul>
+{% endblock contenido %}
+
+
+

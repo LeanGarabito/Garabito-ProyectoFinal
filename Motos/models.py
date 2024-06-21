@@ -9,4 +9,4 @@ class Moto(models.Model):
     kilometros = models.PositiveIntegerField()
     
     def __str__(self):
-        return f"{self.marca} {self.modelo} ({self.año}) {self.kilometros}"
+        return f"{self.marca} {self.modelo}"
