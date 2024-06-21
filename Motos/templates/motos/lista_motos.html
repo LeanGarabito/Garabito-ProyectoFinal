@@ -1,0 +1,26 @@
+{% extends "base/inicio.html" %}
+
+{% block titulo %}
+Lista Motos
+{% endblock titulo %}
+
+{% block contenido %}
+{% if Motos%}
+    <ul>
+        {% for moto in motos %}
+        <li>{{moto}} | 
+            {% comment %} <a href={% url "eliminar_moto" moto.id %}>Eliminar</a>
+            <a href={% url "editar_moto" moto.id %}>Editar</a>
+            <a href={% url "ver_moto" moto.id %}>Ver</a> {% endcomment %}
+        </li>
+    </ul>
+        {% endfor %}
+{% else %}
+<p>No hay motos creadas</p>
+{% endif %}
+{% endblock contenido %}
+
+
+
+
+

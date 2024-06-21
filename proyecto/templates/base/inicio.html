@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block titulo %}Mi Sitio{% endblock titulo %}</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'ListaMotos' %}">Motos</a></li>
+            {% comment %} <li><a href="{% url 'autos' %}">Autos</a></li>
+            <li><a href="{% url 'motos' %}">Motos</a></li>
+            <li><a href="{% url 'sobre_mi' %}">Sobre mí</a></li>
+            <li><a href="{% url 'registro' %}">Registro</a></li>
+            <li><a href="{% url 'inicio_sesion' %}">Iniciar sesión</a></li> {% endcomment %}
+        </ul>
+    </nav>
+    {% block contenido%}
+    {% endblock contenido %}
+</body>
+</html> 
