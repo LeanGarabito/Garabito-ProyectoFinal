@@ -1,0 +1,40 @@
+{% extends "base/index.html" %}
+
+{% block titulo %}
+Registro
+{% endblock titulo %}
+
+{% block h1_header %}
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+    }
+    input[type="submit"] {
+        margin-top: 10px;
+    }
+</style>
+<h5><form action={% url "Register" %} method="POST">
+    {% csrf_token %}
+    {{formulario}}
+
+    <input type="submit" value="Registrarse">
+</form></h5>
+{% endblock h1_header %} 
+
+{% block servicios %}
+{% endblock servicios %}
+{% block boton %}{% endblock boton %}

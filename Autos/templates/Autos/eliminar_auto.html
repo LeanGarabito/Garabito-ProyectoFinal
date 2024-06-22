@@ -1,13 +1,13 @@
 {% extends "base/index.html" %}
 
 {% block titulo %}
-Eliminar moto
+Eliminar Auto
 {% endblock titulo %}
 
 {% block h1_header %}
-<form action={% url "EliminarMoto" moto.id %} method="POST">
+<form action={% url "EliminarAuto" auto.id %} method="POST">
     {% csrf_token %} 
-<h1><p>Desea confirmar el borrado de {{moto}}</p></h1>
+<h1><p>Desea confirmar el borrado de {{auto}}</p></h1>
     <h5><input type="submit" value="Confirmar borrado"></h5>
 </form>
 {% endblock h1_header %}

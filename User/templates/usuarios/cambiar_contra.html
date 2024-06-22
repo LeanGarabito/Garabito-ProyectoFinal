@@ -1,0 +1,39 @@
+{% extends "base/index.html" %}
+
+{% block titulo %}
+Cambiar contraseña
+{% endblock titulo %}
+
+{% block h1_header %}
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+    }
+    input[type="submit"] {
+        margin-top: 10px;
+    }
+</style>
+<h6><form action={% url "EditarContra" %} method="POST">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Cambiar Contraseña">
+</form></h6>
+{% endblock h1_header %} 
+
+{% block servicios %}
+{% endblock servicios %}
+{% block boton %}{% endblock boton %}

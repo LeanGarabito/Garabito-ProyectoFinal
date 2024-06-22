@@ -1,12 +1,12 @@
 {% extends "base/index.html" %}
 
 {% block titulo %}
-Crear moto
+Crear Auto
 {% endblock titulo %}
 
 {% block h1_header %}
 <h6>
-    <form action={% url "CrearMoto" %} method="POST">
+    <form action={% url "CrearAuto" %} method="POST">
     {% csrf_token %}
     {{form}}
 
@@ -19,6 +19,3 @@ Crear moto
 {% block servicios %}
 {% endblock servicios %}
 {% block boton %}{% endblock boton %}
-
-
-

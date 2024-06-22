@@ -1,10 +1,16 @@
-{% extends "motos/inicio.html" %}
+{% extends "base/index.html" %}
 
 {% block titulo %}
 Lista Motos
 {% endblock titulo %}
 
-{% block contenido %}
+{% block h1_header %}
+{{moto}}
+{% endblock h1_header %}
+{% block h2_header %}
+{% endblock h2_header %}
+{% block boton %}{% endblock boton %}
+{% block servicios %}
 <ul>
     <li>Marca: {{moto.marca}}</li>
     <li>Modelo: {{moto.modelo}}</li>
@@ -12,7 +18,9 @@ Lista Motos
     <li>Kilometros: {{moto.kilometros}}</li>    
 
 </ul>
-{% endblock contenido %}
+{% endblock servicios %}
+
+
 
 
 

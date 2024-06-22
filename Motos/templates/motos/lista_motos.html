@@ -1,21 +1,39 @@
-{% extends "motos/inicio.html" %}
+{% extends "base/index.html" %}
 
 {% block titulo %}
 Lista Motos
 {% endblock titulo %}
 
-{% block contenido %}
+{% block h1_header %}
+Lista de Motos:
+{% endblock h1_header%}
+{% block h2_header %}
+Motomel,Honda,Kawasaki y mas..
+{% endblock h2_header %}
+
+
+
+{% block servicios %}
 {% if motos%}
         {% for moto in motos %}
         <li>{{moto}}</li>
+            <a href={% url "VerMoto" moto.id %}>Ver</a> 
+            {% if request.user.is_authenticated %}
             <a href={% url "EliminarMoto" moto.id %}>Eliminar</a>
             <a href={% url "EditarMoto" moto.pk %}>Editar</a>
-            <a href={% url "VerMoto" moto.id %}>Ver</a> 
+            
+            {% endif %}
         {% endfor %}
 {% else %}
 <p>No hay motos creadas</p>
 {% endif %}
-{% endblock contenido %}
+{% endblock servicios %}
+
+{% block boton %}
+{% if request.user.is_authenticated %}
+<a class="btn btn-primary btn-xl" href={% url "CrearMoto" %}>Crar Moto</a>
+{% endif %}
+{% endblock boton %}
 
 
 
