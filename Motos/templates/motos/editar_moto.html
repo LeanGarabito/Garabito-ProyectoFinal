@@ -6,7 +6,7 @@ Editar moto
 
 {% block h1_header %}
 <h4>
-<form action={% url "EditarMoto" moto.id %} method="POST">
+<form action={% url "EditarMoto" moto.id %} method="POST" enctype='multipart/form-data'>
     {% csrf_token %}
     {{form}}
 

@@ -11,6 +11,12 @@ Lista Motos
 {% endblock h2_header %}
 {% block boton %}{% endblock boton %}
 {% block servicios %}
+{% if moto.imagen %}
+    <img src="{{ moto.imagen.url }}"  class="moto-image">
+    {% else %}
+        <img src="default-image.jpg" alt="Imagen no disponible" class="moto-image">
+{% endif %}
+<div class= 'moto-card'>
 <ul>
     <li>Marca: {{moto.marca}}</li>
     <li>Modelo: {{moto.modelo}}</li>
@@ -18,6 +24,7 @@ Lista Motos
     <li>Kilometros: {{moto.kilometros}}</li>    
 
 </ul>
+</div>
 {% endblock servicios %}
 
 

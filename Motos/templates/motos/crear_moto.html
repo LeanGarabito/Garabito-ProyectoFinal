@@ -6,7 +6,7 @@ Crear moto
 
 {% block h1_header %}
 <h6>
-    <form action={% url "CrearMoto" %} method="POST">
+    <form action={% url "CrearMoto" %} method="POST" enctype='multipart/form-data'>
     {% csrf_token %}
     {{form}}
 

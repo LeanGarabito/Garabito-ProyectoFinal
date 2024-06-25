@@ -6,6 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
+from User.models import DatosExtra
+from django.contrib import messages
 # Create your views here.
 
 def log(request):
@@ -17,6 +19,9 @@ def log(request):
             contra = formulario.cleaned_data.get('password')
             user = authenticate(request, username=usuario,password=contra)
             login(request,user)
+            
+            DatosExtra.objects.get_or_create(user=user)
+            
             return redirect('Inicio')
     
     return render(request,'usuarios/login.html',{'formulario': formulario})
@@ -27,16 +32,22 @@ def register(request):
         formulario = FormularioCrearuser(request.POST)
         if formulario.is_valid():
             formulario.save()
+            messages.success(request,'se creo el usuario')
             return redirect('Login')
     return render(request,'usuarios/register.html',{'formulario':formulario})
 
 @login_required
 def editar_perfil(request):
-    formulario= EditarPerfil(instance=request.user)
+    datosextra = request.user.datosextra
+    formulario= EditarPerfil(initial={'avatar': datosextra.avatar},instance=request.user)
     if request.method == "POST":
-        formulario = EditarPerfil(request.POST,instance=request.user)
+        formulario = EditarPerfil(request.POST,request.FILES,instance=request.user)
         if formulario.is_valid():
+            datosextra.avatar = formulario.cleaned_data.get('avatar')
+            datosextra.save()
+            # messages.success(request,'Datos Actualizados')
             formulario.save()
+            # messages.success(request,'Datos Actualizados')
             return redirect('EditarPerfil')
     return render(request,'usuarios/editar_perfil.html',{'formulario':formulario})
 

@@ -5,6 +5,7 @@ Inicias sesion
 {% endblock titulo %}
 
 {% block h1_header %}
+
 <style>
     body {
         display: flex;
@@ -27,7 +28,7 @@ Inicias sesion
         margin-top: 10px;
     }
 </style>
-<h6><form action={% url "EditarPerfil" %} method="POST">
+    <h6><form action={% url "EditarPerfil" %} method="POST" enctype='multipart/form-data'>
     {% csrf_token %}
     {{formulario}}
 

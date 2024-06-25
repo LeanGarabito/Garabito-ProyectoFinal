@@ -21,7 +21,7 @@ class CrearMotos(LoginRequiredMixin, CreateView):
     model = Moto
     template_name = 'motos/crear_moto.html'
     success_url = reverse_lazy('ListaMotos')
-    fields = ['marca','modelo','año','kilometros']
+    fields = ['marca','modelo','año','kilometros','imagen']
 
 class VerMoto(DetailView):
     model = Moto
@@ -32,7 +32,7 @@ class EditarMoto(LoginRequiredMixin, UpdateView):
     model = Moto
     template_name = 'motos/editar_moto.html'
     success_url = reverse_lazy('ListaMotos')
-    fields = ['marca','modelo','año','kilometros']    
+    fields = ['marca','modelo','año','kilometros','imagen']    
     
     
 class EliminarMoto(LoginRequiredMixin,DeleteView):
