@@ -1,1 +1,2 @@
-Leandro Garabito
+Super User: LeanGarabito
+Contraseña: Qwerty1
