@@ -1,0 +1,39 @@
+{% extends "base/index.html" %}
+
+{% block titulo %}
+About
+{% endblock titulo %}
+
+{% block h1_header %}
+{% load static %}
+<img src="{% static 'assets/img/Servicios/foto.jpg' %}" alt="imagen" class="mi-foto">
+{% endblock h1_header %} 
+
+{% block h2_header %}{% endblock h2_header %}
+{% block boton %}{% endblock boton %}
+{% block servicios %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+<section id="historia-personal">
+    <h2>Mi Historia</h2>
+    <p>Buenas, mi nombre es Leandro Gabriel Garabito, tengo 24 años y me estoy iniciando en el mundo de la 
+        programacion, espero poder desarrollar buenas habilidades y dedicarme de lleno a esto, siento que es para mi .
+        ya que busque varias carreras y ninguna me llamo.
+    </p>
+</section>
+
+<section id="educacion">
+    <h2>Educación</h2>
+    <p>Iniciando Tecnicatura Desarrollo web, Universidad del oeste</p>
+</section>
+
+
+
+<section id="contacto">
+    <h2>Contacto</h2>
+    <p>Email: Leandro.garabito@hotmail.com</p>
+    <p>Instagram: <a href="https://www.instagram.com/leandro.garabito/" target="_blank">Leandro.Garabito</a></p>
+    <p><link rel="stylesheet" href=""></p>
+</section>
+{% endblock servicios %}

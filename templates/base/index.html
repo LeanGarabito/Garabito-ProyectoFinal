@@ -29,7 +29,7 @@
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="{% url "ListaAutos" %}">Autos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url "ListaMotos" %}">Motos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">Sobre Mi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url "About" %}">Sobre Mi</a></li>
                         {% if not request.user.is_authenticated %}
                         
                         <li class="nav-item"><a class="nav-link" href="{% url "Mensajes" %}">Contacto</a></li>

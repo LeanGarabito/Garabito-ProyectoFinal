@@ -34,14 +34,13 @@ def register(request):
         formulario = FormularioCrearuser(request.POST)
         if formulario.is_valid():
             formulario.save()
-            # messages.success(request,'se creo el usuario')
             return redirect('Login')
     return render(request,'usuarios/register.html',{'formulario':formulario})
 
 @login_required
 def editar_perfil(request):
     datosextra = request.user.datosextra
-    formulario= EditarPerfil(initial={'avatar': datosextra.avatar},instance=request.user)
+    formulario= EditarPerfil(initial={'avatar': datosextra.avatar,'fecha_nacimiento':datosextra.fecha_nacimiento},instance=request.user)
     if request.method == "POST":
         formulario = EditarPerfil(request.POST,request.FILES,instance=request.user)
         if formulario.is_valid():
@@ -66,5 +65,6 @@ def Usuario(request):
     return render(request,'usuarios/user.html',{'usuario': usuario, 'datos_extra':datos_extra})
 
 
-    
+def about(request):
+    return render(request,'usuarios/about.html')
 
