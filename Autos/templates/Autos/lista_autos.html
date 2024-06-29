@@ -14,21 +14,42 @@ Peugeot, Fiat
 
 
 {% block servicios %}
-{% if Autos%}
-        {% for auto in Autos %}
-        <li>{{auto}}</li>
-            <a href={% url "VerAuto" auto.id %}>Ver</a> 
-            {% if request.user.is_authenticated %}
-            <a href={% url "EliminarAuto" auto.id %}>Eliminar</a>
-            <a href={% url "EditarAuto" auto.pk %}>Editar</a> 
-            {% endif %}
+<form action={% url "ListaAutos" %} class='motolist-container' method="get">
+    {{formulario}}
+    <input type="submit" value="Buscar">
+
+</form>
+<div class="auto-container" class="page-section" id="services">
+{% if autos%}
+    {% for auto in autos %}
+    <div class="auto-card">
+        {% if auto.imagen %}
+            <img src="{{ auto.imagen.url }}" class="auto-image">
+        {% else %}
+            <img src="default-image.jpg" alt="Imagen no disponible" claas="auto-image">
+        {% endif %}
+        <div class="auto-details">
+            <ul>
+                <li>{{auto}}</li>
+                <a href={% url "VerAuto" auto.id %} class='btn btn-secondary'>Ver</a> 
+                {% if request.user.is_authenticated %}
+                    <a href={% url "EliminarAuto" auto.id %} class='btn btn-danger'>Eliminar</a>
+                    <a href={% url "EditarAuto" auto.pk %} class='btn btn-danger'>Editar</a>
+                    {% else %}
+                    <a href="{% url 'Mensajes' %}" class='btn btn-primary'>Contacto</a>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
         {% endfor %}
-{% else %}
-<p>No hay Autos creadas</p>
-{% endif %}
+    {% else %}
+        <p>No hay autos creados con esa marca</p>
+    {% endif %}
 {% endblock servicios %}
 
+
 {% block boton %}
+<a class="btn btn-primary btn-xl" href="#services">Ver autos</a>
 {% if request.user.is_authenticated %}
 <a class="btn btn-primary btn-xl" href={% url "CrearAuto" %}>Crear Auto</a>
 {% endif %}

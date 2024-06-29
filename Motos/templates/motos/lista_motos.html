@@ -8,68 +8,49 @@ Lista Motos
 Lista de Motos:
 {% endblock h1_header%}
 {% block h2_header %}
-Motomel,Honda,Kawasaki y mas..
+
 {% endblock h2_header %}
 
 
 
 
 {% block servicios %}
+<form action={% url "ListaMotos" %} class='motolist-container' method="get">
+    {{formulario}}
+    <input type="submit" value="Buscar">
+
+</form>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        .moto-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 20px;
-        }
-        .moto-card {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 10px;
-            width: 300px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .moto-image {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-        .moto-details {
-            margin-top: 10px;
-        }
-    </style>
-<body>
-    <div class="moto-container">
+    <div class="motolist-container" class="page-section" id="services">
         {% if motos %}
             {% for moto in motos %}
-            <div class="moto-card">
+            <div class="motolist-card">
                 {% if moto.imagen %}
-                <img src="{{ moto.imagen.url }}" alt="Imagen de {{ moto.marca }} {{ moto.modelo }}" class="moto-image">
+                <img src="{{ moto.imagen.url }}" class="motolist-image">
                 {% else %}
-                <img src="default-image.jpg" alt="Imagen no disponible" class="moto-image">
+                <img src="default-image.jpg" alt="Imagen no disponible" class="motolist-image">
                 {% endif %}
-                <div class="moto-details">
+                <div class="motolist-details">
                     <p>{{ moto }}</p>
-                    <a href="{% url 'VerMoto' moto.id %}">Ver</a>
+                    <a href="{% url 'VerMoto' moto.id %}" class='btn btn-secondary'>Ver</a>
                     {% if request.user.is_authenticated %}
-                    <a href="{% url 'EliminarMoto' moto.id %}">Eliminar</a>
-                    <a href="{% url 'EditarMoto' moto.pk %}">Editar</a>
+                    <a href="{% url 'EliminarMoto' moto.id %}"class='btn btn-danger'>Eliminar</a>
+                    <a href="{% url 'EditarMoto' moto.pk %}"class='btn btn-danger'>Editar</a>
+                    {% else %}
+                    <a href="{% url 'Mensajes' %}" class='btn btn-primary'>Contacto</a>
                     {% endif %}
                 </div>
             </div>
             {% endfor %}
         {% else %}
-        <p>No hay motos creadas</p>
+        <p>No hay motos creadas con esa marca, escriba correctamente la marca deseada.</p>
         {% endif %}
         {% endblock servicios %}
     </div>
 
     {% block boton %}
+    <a class="btn btn-primary btn-xl" href="#services">Ver motos</a>
     {% if request.user.is_authenticated %}
     <a class="btn btn-primary btn-xl" href="{% url 'CrearMoto' %}">Crear Moto</a>
     {% endif %}

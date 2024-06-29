@@ -1,0 +1,17 @@
+{% extends "base/index.html" %}
+
+{% block titulo %}
+Contacto
+{% endblock titulo %}
+
+{% block h1_header %}
+    <form action={% url "Mensajes" %} method="POST">
+    {% csrf_token %}
+    {{formulario.as_p}}
+
+    <h5><input type="submit" value="Enviar"></h5>
+    </form>
+{% endblock h1_header %} 
+{% block h2_header %}{% endblock h2_header %}
+{% block servicios %}{% endblock servicios %}
+{% block boton %}{% endblock boton %}

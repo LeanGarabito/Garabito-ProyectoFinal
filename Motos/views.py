@@ -5,6 +5,7 @@ from django.views.generic.detail import DetailView
 from .models import Moto
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import BuscarMoto
 # Create your views here.
 
 def Inicio(request):
@@ -12,10 +13,12 @@ def Inicio(request):
 
 
 
-class Motos(ListView):
-    model = Moto
-    template_name = 'motos/lista_motos.html'
-    context_object_name = 'motos'
+def motos(request):
+    formulario = BuscarMoto(request.GET)
+    if formulario.is_valid():
+        marca = formulario.cleaned_data['marca']
+        motos = Moto.objects.filter(marca__icontains=marca)
+    return render(request, 'motos/lista_motos.html', {'motos': motos, 'formulario': formulario})
     
 class CrearMotos(LoginRequiredMixin, CreateView):
     model = Moto
@@ -39,6 +42,9 @@ class EliminarMoto(LoginRequiredMixin,DeleteView):
     model = Moto
     template_name = "motos/eliminar_moto.html"
     success_url = reverse_lazy('ListaMotos')
+    
+    
+
     
 
     

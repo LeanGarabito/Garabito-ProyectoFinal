@@ -10999,3 +10999,169 @@ header.masthead h1, header.masthead .h1 {
   height: auto;
   margin-bottom: 20px;
 }
+
+
+
+
+
+
+.profile-container {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.profile-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.profile-container li {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.profile-container img {
+    border-radius: 50%;
+    margin: 10px 0;
+}
+
+.profile-container .btn-primary {
+    margin-top: 20px;
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.profile-container .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+.white-text {
+  color: white;
+}
+
+
+
+
+.moto-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.moto-image {
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+}
+.motolist-image {
+  max-width: 300px; 
+ height: auto; 
+ border-radius: 8px; 
+ display: block; 
+ margin-bottom: 10px; 
+}
+
+.motolist-container {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 20px;
+ padding: 20px;
+ justify-content: center;
+}
+.motolist-card {
+ border: 1px solid #ccc;
+ border-radius: 8px;
+ padding: 10px;
+ width: 300px;
+ text-align: center;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+.motolist-image {
+ width: 100%;
+ height: auto;
+ border-radius: 8px;
+}
+.motolist-details {
+ margin-top: 10px;
+}
+
+
+
+
+
+.auto-image {
+  width: 20%;
+  height: auto;
+  border-radius: 8px;
+}
+.auto-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+.auto-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  width: 300px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.auto-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.auto-details {
+  margin-top: 30px;
+}
+
+
+
+
+.contacto-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.contacto-details {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: hidden; /* Para que el texto que no cabe se corte */
+  text-overflow: ellipsis; /* Para añadir "..." al final del texto cortado */
+  white-space: pre-wrap;
+}
+
+.contacto-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 40px;
+  justify-content: center;
+}

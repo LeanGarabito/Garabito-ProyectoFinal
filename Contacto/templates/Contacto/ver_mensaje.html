@@ -1,0 +1,34 @@
+{% extends "base/index.html" %}
+
+{% block titulo %}
+Mensaje
+{% endblock titulo %}
+
+{% block h1_header %}
+Mensaje:
+{% endblock h1_header %}
+{% block h2_header %}{% endblock h2_header %}
+
+{% block servicios %}
+
+
+<div class="contacto-container">
+    <div class="contacto-card">
+        <div class="contacto-details">
+            <ul>
+                <li>Nombre: {{ mensaje.nombre}}</li>
+                <li>Email: {{ mensaje.email }}</li>
+                <li>Asunto: {{ mensaje.asunto }}</li>
+                <li>Mensaje: {{ mensaje.mensaje }}</li>
+                <li>Fecha de Envío: {{ mensaje.fecha_envio }}</li>
+                
+            </ul>
+        </div>
+    </div>
+    
+</div>
+{% endblock servicios %}
+
+{% block boton %}
+<a class="btn btn-primary btn-xl" href="{% url "Inicio" %}">Inicio</a>
+{% endblock boton %}

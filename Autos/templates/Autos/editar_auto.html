@@ -6,7 +6,7 @@ Editar Auto
 
 {% block h1_header %}
 <h4>
-<form action={% url "EditarAuto" auto.id %} method="POST">
+<form action={% url "EditarAuto" auto.id %} method="POST" enctype='multipart/form-data'>
     {% csrf_token %}
     {{form}}
 

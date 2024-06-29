@@ -1,0 +1,17 @@
+{% extends "base/index.html" %}
+
+{% block titulo %}
+Mensaje Enviado
+{% endblock titulo %}
+
+{% block h1_header %}
+<h1 class="white-text">¡Gracias por tu mensaje!</h1>
+<p class="white-text">Nos pondremos en contacto contigo lo antes posible.</p>
+{% endblock h1_header %}
+{% block h2_header %}{% endblock h2_header %}
+
+{% block servicios %}{% endblock servicios %}
+
+{% block boton %}
+<a class="btn btn-primary btn-xl" href="{% url "Inicio" %}">Inicio</a>
+{% endblock boton %}

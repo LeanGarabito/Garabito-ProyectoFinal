@@ -1,0 +1,25 @@
+{% extends "base/index.html" %}
+
+{% block titulo %}
+Usuario
+{% endblock titulo %}
+
+{% block h1_header %}
+<div class='profile-container'>
+<h5>
+    <li>Nombre: {{usuario.first_name}}</li> 
+    <li>Apellido: {{usuario.last_name}}</li>  
+    <li>Email: {{usuario.email}}</li>
+    <li>Nombre Usuario: {{usuario.username}}</li>
+    {% if datos_extra.avatar %}
+    <li><img src="{{datos_extra.avatar.url}}" alt="Avatar" style="width:150px;height:150px;"></li>
+    {% endif %}
+    <a class="btn btn-primary" href={% url "EditarPerfil" %}>Editar perfil</a>
+</h5></div>
+{% endblock h1_header %} 
+
+{% block h2_header %}
+{% endblock h2_header %}
+{% block servicios %}{% endblock servicios %}
+{% block boton %}
+{% endblock boton %}

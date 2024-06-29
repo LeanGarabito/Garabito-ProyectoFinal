@@ -7,15 +7,22 @@ Lista Motos
 {% block h1_header %}
 {{moto}}
 {% endblock h1_header %}
+
 {% block h2_header %}
 {% endblock h2_header %}
-{% block boton %}{% endblock boton %}
+
+{% block boton %}
+<a class="btn btn-primary btn-xl" href="{% url "ListaMotos" %}">Volver</a>
+{% endblock boton %}
+
 {% block servicios %}
-{% if moto.imagen %}
-    <img src="{{ moto.imagen.url }}"  class="moto-image">
+
+<div class="moto-card">
+    {% if moto.imagen %}
+        <img src="{{ moto.imagen.url }}" class="moto-image ">
     {% else %}
-        <img src="default-image.jpg" alt="Imagen no disponible" class="moto-image">
-{% endif %}
+        <img src="default-image.jpg" alt="Imagen no disponible" class="moto-image ">
+    {% endif %}
 <div class= 'moto-card'>
 <ul>
     <li>Marca: {{moto.marca}}</li>

@@ -8,6 +8,8 @@ from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 from User.models import DatosExtra
 from django.contrib import messages
+from django.contrib.auth.models import User
+from django.views.generic.list import ListView
 # Create your views here.
 
 def log(request):
@@ -32,7 +34,7 @@ def register(request):
         formulario = FormularioCrearuser(request.POST)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request,'se creo el usuario')
+            # messages.success(request,'se creo el usuario')
             return redirect('Login')
     return render(request,'usuarios/register.html',{'formulario':formulario})
 
@@ -45,10 +47,10 @@ def editar_perfil(request):
         if formulario.is_valid():
             datosextra.avatar = formulario.cleaned_data.get('avatar')
             datosextra.save()
-            # messages.success(request,'Datos Actualizados')
+          
             formulario.save()
-            # messages.success(request,'Datos Actualizados')
-            return redirect('EditarPerfil')
+        
+            return redirect('VerPerfil')
     return render(request,'usuarios/editar_perfil.html',{'formulario':formulario})
 
 
@@ -56,8 +58,13 @@ def editar_perfil(request):
 class cambiar_password(LoginRequiredMixin, PasswordChangeView):
     template_name = 'usuarios/cambiar_contra.html'
     sussecess_url = reverse_lazy('EditarPerfil')
-    
-    
+
+@login_required
+def Usuario(request):
+    usuario = request.user
+    datos_extra = DatosExtra.objects.get(user=usuario)
+    return render(request,'usuarios/user.html',{'usuario': usuario, 'datos_extra':datos_extra})
+
 
     
 

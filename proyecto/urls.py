@@ -24,6 +24,8 @@ urlpatterns = [
     path('', include('Motos.urls')),
     path('', include('User.urls')),
     path('',include('Autos.urls')),
+    path('',include('Contacto.urls')),
+    
     
 ] 
 

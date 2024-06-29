@@ -6,7 +6,7 @@ Crear Auto
 
 {% block h1_header %}
 <h6>
-    <form action={% url "CrearAuto" %} method="POST">
+    <form action={% url "CrearAuto" %}  method="POST">
     {% csrf_token %}
     {{form}}
 

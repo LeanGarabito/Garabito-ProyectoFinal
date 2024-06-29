@@ -29,12 +29,21 @@
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="{% url "ListaAutos" %}">Autos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url "ListaMotos" %}">Motos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">Sobre Mi</a></li>
+                        {% if not request.user.is_authenticated %}
+                        
+                        <li class="nav-item"><a class="nav-link" href="{% url "Mensajes" %}">Contacto</a></li>
+                        {% endif %}
                         {% if request.user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link" href="{% url "Lista_mensajes" %}">Mensajes</a></li>
                         <form action={% url "Logout" %} method="POST">
                             {% csrf_token %} 
-                            <a class="nav-item" href={% url "EditarPerfil" %}>{{request.user.username}}</a>
+                            <a class="nav-item" href={% url "VerPerfil" %}>
+                                {% if request.user.datosextra.avatar %}
+                                <img src={{request.user.datosextra.avatar.url}} alt="Avatar" height='40px'>
+                                {% endif %}
+                                {{request.user.username}}
+                            </a>
                             <input type="submit" class='btn btn-secondary' value="Cerrar sesion">
                         </form>   
                         {% else %}
@@ -54,8 +63,7 @@
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
                         <h1 class="text-white font-weight-bold">{% block h1_header %}Encuentra el vehiculo de tus sueños hoy{% endblock h1_header %}</h1>
-                        <hr class="divider" />
-                        
+                        <hr class="divider"/>
                     </div>
                     <div class="col-lg-8 align-self-baseline">
                         <p class="text-white-75 mb-5">{% block h2_header %}Descubre nuestra amplia selección de vehículos nuevos y usados con financiamiento a medida y un servicio excepcional.{% endblock h2_header %}</p>

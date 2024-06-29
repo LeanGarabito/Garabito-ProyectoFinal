@@ -1,0 +1,32 @@
+{% extends "base/index.html" %}
+
+{% block titulo %}
+Lista Mensajes
+{% endblock titulo %}
+
+{% block h1_header %}
+Lista mensajes:
+{% endblock h1_header %}
+{% block h2_header %}{% endblock h2_header %}
+
+{% block servicios %}
+<div class="auto-container">
+    {% for mensaje in mensajes %}
+    <div class="auto-card">
+        <div class="auto-details">
+            <ul>
+                <li>Nombre: {{ mensaje.nombre }}</li>
+                <li>Asunto: {{ mensaje.asunto }}</li>
+                {% comment %} <li>Fecha de Envío: {{ mensaje.fecha_envio }}</li> {% endcomment %}
+                <a href="{% url "Ver_mensaje" mensaje.id %}" class='btn btn-secondary'>Ver</a>
+                <a href="{% url "Eliminar_mensaje" mensaje.id %}" class='btn btn-primary'>Eliminar</a>
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock servicios %}
+
+{% block boton %}
+<a class="btn btn-primary btn-xl" href="{% url "Inicio" %}">Inicio</a>
+{% endblock boton %}

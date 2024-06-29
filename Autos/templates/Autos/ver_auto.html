@@ -1,19 +1,32 @@
 {% extends "base/index.html" %}
 
-{% block titulo %}Ver Auto{% endblock titulo %}
+{% block titulo %}
+Ver Auto
+{% endblock titulo %}
 
 {% block h1_header %}
-Auto: {{auto}}
+Auto: {{ auto }}
 {% endblock h1_header %}
+
 {% block h2_header %}
 {% endblock h2_header %}
-{% block boton %}{% endblock boton %}
-{% block servicios %}
-<ul>
-    <li>Marca: {{auto.marca}}</li>
-    <li>Modelo: {{auto.modelo}}</li>
-    <li>Año: {{auto.año}}</li>   
-    <li>Kilometros: {{auto.kilometros}}</li>    
 
-</ul>
+{% block boton %}
+<a class="btn btn-primary btn-xl" href="{% url "ListaAutos" %}">Volver</a>
+{% endblock boton %}
+
+{% block servicios %}
+<div class="moto-card">
+{% if auto.imagen %}
+    <img src="{{ auto.imagen.url }}" class="moto-image">
+{% else %}
+    <img src="default-image.jpg" alt="Imagen no disponible" class="moto-image">
+{% endif %}
+
+<ul>
+    <li>Marca: {{ auto.marca }}</li>
+    <li>Modelo: {{ auto.modelo }}</li>
+    <li>Año: {{ auto.año }}</li>
+    <li>Kilómetros: {{ auto.kilometros }}</li>
+</ul></div>
 {% endblock servicios %}
